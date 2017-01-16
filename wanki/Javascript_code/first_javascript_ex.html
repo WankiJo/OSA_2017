@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+		var output = '';
+		var output2 = '';
+
+		for (var i = 0; i < 10; i++) {
+			for (var j = 0; j <i; j++){
+				output += '*';
+			}
+			output += '\n';
+		}
+		alert(output);
+
+		for (var i = 0; i < 15; i++) {
+			for (var k = 15; k>i; k--){
+				output += ' ';
+			}
+			for (var j = 0; j <2*i-1; j++){
+				output += '*';
+			}
+			output += '\n';
+			
+			for (var m = 0; m>i; m++){
+				output1 += ' ';
+			}
+			for (var n = 15; n<2*i-1; n++){
+				output1 += '*';
+			}
+			output1 += '\n';
+		}
+		// for (var i = 15; i > 0; i--) {
+		// 	for (var k =0; k<i; k++){
+		// 		output += ' ';
+		// 	}
+		// 	for (var j = 15; j >2*i-1; j--){
+		// 		output += '*';
+		// 	}
+		// 	output += '\n';
+		// }
+		alert(output);
+		alert(output1);
+
+	</script>
+<body>
+
+</body>
+</html>
