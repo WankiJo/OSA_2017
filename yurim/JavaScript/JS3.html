@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function nextRandomInteger(limit){
+            return Math.round(Math.random() * limit);
+        }
+
+        var randomAlphabet = (function (){
+            var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            return function () {
+                return alphabet.charAt(nextRandomInteger(25));
+            }
+        })();
+
+        function randomSpeed(maxSpeed) {
+            return Math.random() * maxSpeed - Math.random() * maxSpeed;
+        }
+
+        var oanvaaWidth = 700;
+        var oanvaaHeight = 400;
+
+        function MovingText(){
+            this.x=nextRandomInteger(oanvaaWidth);
+            this.y = nextRandomInteger(oanvaaHeight);
+            this.vx = randomSpeed(10);
+            this.vy = randomSpeed(10);
+
+            this.body = document.createElement('h1');
+            this.body.innerHTML = randomAlphabet();
+            this.body.style.position='absolute';
+
+            document.body.appendChild(this.body);
+        }
+
+        MovingText.prototype.move=function () {
+            if (this.x<0 || this.x>oanvaaWidth){this.vx *= -1;}
+            if (this.y < 0 || this.y > oanvaaHeight){this.vy *= -1;}
+
+            this.x += this.vx;
+            this.y += this.vy;
+
+            this.body.style.left = this.x + 'px';
+            this.body.style.top = this.y + 'px';
+
+        };
+
+        window.onload = function (){
+            var movingTexts = [];
+
+            for(var i = 0; i<100; i++){
+                movingTexts.push(new MovingText());
+            }
+
+            setInterval(function(){
+                for (var i in movingTexts){
+                    movingTexts[i].move();
+                }
+            },1000 / 60);
+        };
+        </script>
+</head>
+<body>
+
+</body>
+</html>

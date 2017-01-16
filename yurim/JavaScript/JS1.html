@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script>
+        var output = '';
+
+        for(var i=0;i<10;i++){
+            for(var j=0;j<i;j++){
+                output += '*';
+            }
+            output += '\n';
+        }
+
+        alert(output);
+
+        var output2 = '';
+
+        for(var i=0;i<15;i++){
+            for(var j=15;j>i;j--){
+                output2 += ' ';
+            }
+            for(var k=0;k<2*i-1;k++){
+                output2 += '*';
+            }
+            output2 += '\n';
+        }
+        alert(output2);
+
+        var output3 = '';
+
+        for(var i=0;i<10;i++){
+            for(var j=5;j>i;j--){
+                output3 += ' ';
+            }
+            for(var k=0;k<2*i-1;k++){
+                output3 += '*';
+            }
+           // for(var l=10)
+            output3 += '\n';
+
+        }
+
+        alert(output3);
+
+    </script>
+
+</head>
+<body>
+
+
+
+</body>
+</html>
