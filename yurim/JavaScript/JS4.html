@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+    var xml = '';
+
+    xml += '<friends>';
+    xml += ' <friend>';
+    xml += '  <name>이상민</name>';
+    xml += '  <language>HTML</language>';
+    xml += ' </friend>';
+    xml += ' <friend>';
+    xml += '  <name>조완기</name>';
+    xml += '  <language>CSS</language>';
+    xml += ' </friend>';
+    xml += ' <friend>';
+    xml += '  <name>이유림</name>';
+    xml += '  <language>Java</language>';
+    xml += ' </friend>';
+    xml += '</friends>';
+
+        $(document).ready(function (){
+            var xmlDoc = $.parseXML(xml);
+            $(xmlDoc).find('friend').each(function (index) {
+                var output ='';
+                output += '<div>';
+                output += ' <h1>'+$(this).find('name').text()+'</h1>';
+                output += ' <p>'+$(this).find('language').text()+'</p>';
+                output += '</div>';
+
+                document.body.innerHTML += output;
+            });
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
