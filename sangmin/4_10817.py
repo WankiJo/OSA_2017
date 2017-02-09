@@ -1,0 +1,7 @@
+a, b, c = map(int, input().split())
+content = list()
+content.append(a)
+content.append(b)
+content.append(c)
+result = sorted(content)
+print(result[1])
