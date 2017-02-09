@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>chat</title>
+    <style>
+        .chat_log{width:95%; height:200px;}
+        .name{width: 10%;}
+        .message{width:70%;}
+        .chat{width:10%;}
+    </style>
+</head>
+<body>
+
+<div>
+    <textarea id="chatLog" class="chat_log" readonly></textarea>
+</div>
+<form id="chat">
+    <input id="name" class="name" type="text" readonly>
+    <input id="message" class="message" type="text">
+    <input type="submit" class="chat" value="chat"/>
+</form>
+
+<div id="box" class="box">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        var socket = io();//socket초기화
+        $('#chat').on('submit',function(e){//이벤트 받을떄
+            socket.emit('send message',$('#name').val(),$('#message').val());//이벤트 보낼때
+            $('#message').val("");
+            e.preventDefault();
+        });
+        socket.on('receive message',function(msg){
+            $('#chatLog').append(msg+"\n");
+            $('#chatLog').scrollTop($('#chatLog').innerHeight())
+        });
+        socket.on('change name',function(name){
+            $('#name').val(name);
+        });
+    </script>
+
+</div>
+
+</body>
+</html>

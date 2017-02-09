@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		int t,result=0;
+		for(int j=a;j>0;j--){
+			if(j==1){
+				result += b;
+				break;
+			}
+		    t=(int) Math.pow(10, j-1);
+		    result += (int)b/t;
+		    b -= ((int)b/t)*t;
+		}
+		System.out.println(result);
+		
+	}
+}
+

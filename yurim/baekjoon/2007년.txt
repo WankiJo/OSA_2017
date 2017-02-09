@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		int mt=0,result;
+		String day = null;
+		int[] m ={31,28,31,30,31,30,31,31,30,31,30,31};
+		for(int i =1;i<a;i++){
+			mt += m[i-1];
+		}
+		result = (mt+b)%7;
+		switch (result){
+		case 0:day="SUN";
+		break;
+		case 1:day="MON";
+		break;
+		case 2:day="TUE";
+		break;
+		case 3:day="WED";
+		break;
+		case 4:day="THU";
+		break;
+		case 5:day="FRI";
+		break;
+		case 6:day="SAT";
+		break;
+		}
+		System.out.println(day);
+		
+	}
+}

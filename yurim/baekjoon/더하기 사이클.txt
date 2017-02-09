@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int on = sc.nextInt();
+		int i=1,m=0,l=0,n=on;
+		do{
+			m=(int)n/10;
+			l=n-m*10;
+			if(l+m<10) n=10*l+l+m;
+			else n=10*l+(l+m-((int)((l+m)/10)*10));
+			if(on!=n)++i;
+		}while(on!=n);
+		System.out.println(i);
+	}
+}
+
