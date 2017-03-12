@@ -7,31 +7,28 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int m[][]=new int[n][1000] ;
-		int avr[]=new int[n];
-		double r[]=new double[n];
+		int avr=0;
+		double r=0;
 		for(int i=0;i<n;i++){
-			m[i][0]=sc.nextInt();
-			for(int j=1;j<=m[i][0];j++){
+			for(int j=0;j<=m[i][0];j++){
 				m[i][j]=sc.nextInt();
 			}
-		}
-		for(int i=0;i<n;i++){
 			for(int j=1;j<=m[i][0];j++){
-				avr[i] += m[i][j];
+				avr += m[i][j];
 			}
-			avr[i] = avr[i]/m[i][0];
-			//System.out.println(avr[i]);//평균점수
-		}
-		for(int i=0;i<n;i++){
+			avr /= m[i][0];
+
 			for(int j=1;j<=m[i][0];j++){
-				if(avr[i]<m[i][j]){
-					r[i]++;
-				}
+				if(avr<m[i][j])r++;
 			}
-			//System.out.println(r[i]);//평균넘는사람수
-			System.out.printf("%.3f",r[i]/m[i][0]*100);
+			System.out.printf("%.3f",r/m[i][0]*100);
 			System.out.println("%");
+			avr=0;
+			r=0;
+
+		}
+			
 		}
 	}
-}
+
 
